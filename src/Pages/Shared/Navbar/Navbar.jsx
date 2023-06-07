@@ -1,9 +1,10 @@
+import { Link } from 'react-router-dom';
 import logo from '../../../assets/image__2_-removebg-preview.png'
 
 const Navbar = () => {
     const navOptions = <>
-        <li><a>Home</a></li>
-        <li><a>About</a></li>
+        <li><Link to='/'>Home</Link></li>
+        <li><Link to='/instructor'>Instructors</Link></li>
         <li><a>Contact</a></li>
     </>
     return (
