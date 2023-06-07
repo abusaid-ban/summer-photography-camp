@@ -22,9 +22,11 @@ const Banner = () => {
                 }}
                 navigation={true}
                 modules={[Autoplay, Pagination, Navigation]}
-                className="mySwiper h-[400px]"
+                className="mySwiper h-[500px]"
             >
-                <SwiperSlide><img className="mx-auto" src={photo1} alt="" />
+                <SwiperSlide>
+                    <img className="mx-auto" src={photo1} alt="" />
+                 
                 </SwiperSlide>
                 <SwiperSlide><img className="mx-auto" src={photo2} alt="" /></SwiperSlide>
                 <SwiperSlide><img className="mx-auto" src={photo3} alt="" /></SwiperSlide>
