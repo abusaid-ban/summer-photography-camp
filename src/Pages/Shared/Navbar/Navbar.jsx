@@ -4,8 +4,10 @@ import logo from '../../../assets/image__2_-removebg-preview.png'
 const Navbar = () => {
     const navOptions = <>
         <li><Link to='/'>Home</Link></li>
-        <li><Link to='/instructor'>Instructors</Link></li>
-        <li><a>Contact</a></li>
+        <li><Link to='/instructors'>Instructors</Link></li>
+        <li><Link to='/classes'>Classes</Link></li>
+        <li><Link to='/login'>Login</Link></li>
+       
     </>
     return (
         <>
@@ -29,7 +31,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Button</a>
+                    <a className="btn">Get Started</a>
                 </div>
             </div>
 
