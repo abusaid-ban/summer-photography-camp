@@ -16,10 +16,6 @@ const Register = () => {
         })
     };
     
-
-
-   
-    
     return (
         <div>
             <Helmet>

@@ -1,13 +1,17 @@
 import { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from 'sweetalert2'
 
 
 const Login = () => {
     const [show, setShow] = useState(false);
     const { signIn } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/' ;
 
     const handleLogin = event => {
         event.preventDefault();
@@ -19,6 +23,16 @@ const Login = () => {
         .then(result=>{
             const user = result.user;
             console.log(user);
+            Swal.fire({
+                title: 'User Login Successfully',
+                showClass: {
+                  popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                  popup: 'animate__animated animate__fadeOutUp'
+                }
+              });
+              navigate(from, {replace: true});
         })
     }
     return (
