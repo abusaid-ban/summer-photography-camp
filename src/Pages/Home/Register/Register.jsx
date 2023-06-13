@@ -1,21 +1,37 @@
 import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
-    const { register, handleSubmit,  formState: { errors } } = useForm();
+    const { register,reset, handleSubmit, formState: { errors } } = useForm();
+    const { createUser,updateUserProfile} = useContext(AuthContext);
+    const navigate = useNavigate();
     const onSubmit = data => {
         console.log(data)
-        createUser(data.email,data.password)
-        .then(result =>{
-            const loggedUser = result.user;
-            console.log(loggedUser);
-        })
+        createUser(data.email, data.password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                updateUserProfile(data.name,data.photoURL)
+                .then(()=>{
+                   console.log('User profile updated')
+                })
+                .then(error=>console.log(error))
+                reset();
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Sign Up successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+                  navigate('/');
+            })
     };
-    
+
     return (
         <div>
             <Helmet>
@@ -47,16 +63,17 @@ const Register = () => {
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input type="password" {...register("password", { required: true,
-                                     minLength:6,
-                                     maxLength: 20,
-                                        pattern:/(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/
-                                         })} name="password" placeholder="password" className="input input-bordered" />
+                                    <input type="password" {...register("password", {
+                                        required: true,
+                                        minLength: 6,
+                                        maxLength: 20,
+                                        pattern: /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/
+                                    })} name="password" placeholder="password" className="input input-bordered" />
                                     {errors.password?.type === 'required' && <span className="text-red-600">Password is required</span>}
                                     {errors.password?.type === 'minLength' && <span className="text-red-600">Password must be 6 character required</span>}
-                                   
+
                                     {errors.password?.type === 'pattern' && <span className="text-red-600">Password must have one capital letter and one special character required</span>}
-                                   
+
 
                                 </div>
                                 <div className="form-control">
@@ -70,7 +87,7 @@ const Register = () => {
                                     <label className="label">
                                         <span className="label-text">Photo URL</span>
                                     </label>
-                                    <input type="text" {...register("photo")} name="photo" placeholder="photo url" className="input input-bordered" />
+                                    <input type="text" {...register("photoURL")} placeholder="photo URL" className="input input-bordered" />
 
                                 </div>
                                 <div className="form-control mt-6">
