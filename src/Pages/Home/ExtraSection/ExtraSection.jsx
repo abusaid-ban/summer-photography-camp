@@ -14,7 +14,7 @@ const ExtraSection = () => {
     }, [])
     return (
         <section className="my-20">
-            <h2 className="text-3xl text-center  bg-green-200 p-2"><span className="p-2 rounded-xl bg-sky-600">Review </span> Our Students</h2>
+            <h2 className="text-3xl text-center  bg-green-200 p-2"><span className="p-1 rounded-xl bg-sky-600">Review </span> Our Students</h2>
            
             <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
 

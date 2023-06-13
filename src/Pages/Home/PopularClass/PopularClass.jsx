@@ -10,7 +10,7 @@ const PopularClass = () => {
     }, [])
     return (
         <div className="my-24">
-            <h2 className="text-3xl text-center bg-green-200 p-2"><span className="p-2 rounded-xl bg-sky-600">popular </span> Classes</h2>
+            <h2 className="text-3xl text-center bg-green-200 p-2"><span className="p-1 rounded-xl bg-sky-600">popular </span> Classes</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 my-5">
                 {
                     classes.map(allClass => <AllPopularClasses
