@@ -8,13 +8,13 @@ import { useEffect, useState } from "react";
 const ExtraSection = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch('reviews.json')
+        fetch('http://localhost:5000/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])
     return (
         <section className="my-20">
-            <h2 className="text-3xl text-center"><span className="p-2 rounded-xl bg-sky-600">Review </span> Our Students</h2>
+            <h2 className="text-3xl text-center  bg-green-200 p-2"><span className="p-2 rounded-xl bg-sky-600">Review </span> Our Students</h2>
            
             <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
 

@@ -8,7 +8,10 @@ import Login from "../Pages/Login/Login";
 import Classes from "../Pages/Home/Classes/Classes";
 import Register from "../Pages/Home/Register/Register";
 import ErrorPage from "../ErrorPage";
-import DashBoard from "../Pages/Home/DashBoard/DashBoard";
+
+import DashBoard from "../Layout/DashBoard/DashBoard";
+import MyCart from "../Pages/MyCart/MyCart";
+
 
 
   export const router = createBrowserRouter([
@@ -29,10 +32,7 @@ import DashBoard from "../Pages/Home/DashBoard/DashBoard";
             path:"classes",
             element:<Classes></Classes>
         },
-        {
-            path:"dashboard",
-            element:<DashBoard></DashBoard>
-        },
+       
         {
             path:"login",
             element:<Login></Login>
@@ -42,6 +42,16 @@ import DashBoard from "../Pages/Home/DashBoard/DashBoard";
             element:<Register></Register>
         }
       ]
+    },
+    {
+        path:"dashboard",
+        element:<DashBoard></DashBoard>,
+        children:[
+            {
+                path:'mycart',
+                element:<MyCart></MyCart>
+            }
+        ]
     },
     {
         path: "/*",

@@ -5,7 +5,7 @@ import AllInstructor from "./allInstructor";
 const Instructors = () => {
     const [instructors,setInstructors] = useState([]);
     useEffect(()=>{
-        fetch('instructors.json')
+        fetch('http://localhost:5000/instructors')
         .then(res=> res.json())
         .then(data => setInstructors(data));
     },[])
