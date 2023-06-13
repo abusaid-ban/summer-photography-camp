@@ -1,8 +1,6 @@
 const AllInstructor = ({instructor}) => {
     const {name,email,image} = instructor;
-    console.log(image)
-   
-    return (
+   return (
         <div>
             <div className="card w-80 bg-base-100 shadow-xl">
                 <figure className="px-10 pt-10">
