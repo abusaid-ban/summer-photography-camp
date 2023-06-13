@@ -8,6 +8,7 @@ import Login from "../Pages/Login/Login";
 import Classes from "../Pages/Home/Classes/Classes";
 import Register from "../Pages/Home/Register/Register";
 import ErrorPage from "../ErrorPage";
+import DashBoard from "../Pages/Home/DashBoard/DashBoard";
 
 
   export const router = createBrowserRouter([
@@ -27,6 +28,10 @@ import ErrorPage from "../ErrorPage";
         {
             path:"classes",
             element:<Classes></Classes>
+        },
+        {
+            path:"dashboard",
+            element:<DashBoard></DashBoard>
         },
         {
             path:"login",
