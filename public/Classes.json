@@ -3,54 +3,54 @@
     "id": 1,
     "className": "Portrait Photography",
     "picture": "https://i.ibb.co/K7XhgLJ/portrait-2.jpg",
-    "students": 500,
+    "students": 70,
     "name": "David Brown",
     "price":3000,
-    "seats": 200
+    "seats": 35
   },
   {
     "id": 2,
     "className": "Landscape Photography",
     "picture": "https://i.ibb.co/1f9RCDt/maxresdefault.jpg",
-    "students": 450,
+    "students": 50,
     "name": "Sarah Davis",
     "price":2500,
-    "seats": 100
+    "seats": 22
   },
   {
     "id": 3,
     "className": "Wildlife Photography",
     "picture": "https://i.ibb.co/CVX0Dvc/ultimate-WP-2292-2-layered-1-heavy-weight.jpg",
-    "students": 400,
+    "students": 40,
     "name": "Emily Wilson",
     "price":3500,
-    "seats": 130
+    "seats": 30
   },
   {
     "id": 4,
     "className": "Street Photography",
     "picture": "https://i.ibb.co/JKSgLyg/448-252.webp",
-    "students": 350,
+    "students": 40,
     "name": "Michael Johnson",
     "price":2000,
-    "seats": 220
+    "seats": 22
   },
   {
     "id": 5,
     "className": "Fashion Photography",
     "picture": "https://i.ibb.co/0tZdBzn/editorial-photography-class-1024x683.jpg",
-    "students": 300,
+    "students": 38,
     "name": "Jane Smith",
     "price": 2600,
-    "seats": 150
+    "seats": 15
   },
   {
     "id": 6,
     "className": "Macro Photography",
     "picture": "https://i.ibb.co/84jPtmH/del-macro2022.jpg",
-    "students": 250,
+    "students": 51,
     "name": "John Doe",
     "price": 3200,
-    "seats": 60
+    "seats": 40
   }
 ]

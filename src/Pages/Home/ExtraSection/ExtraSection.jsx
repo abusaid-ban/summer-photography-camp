@@ -1,11 +1,8 @@
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import { useEffect, useState } from "react";
-
-
 
 
 const ExtraSection = () => {
@@ -17,7 +14,7 @@ const ExtraSection = () => {
     }, [])
     return (
         <section className="my-20">
-            <h2 className="text-5xl text-center"><span className="p-2 rounded-xl bg-sky-600">Review </span> Our Students</h2>
+            <h2 className="text-3xl text-center"><span className="p-2 rounded-xl bg-sky-600">Review </span> Our Students</h2>
            
             <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
 
