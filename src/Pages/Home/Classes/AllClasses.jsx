@@ -1,0 +1,23 @@
+
+const AllClasses = ({allClass}) => {
+    const {className,picture,seats,name,price} = allClass;
+    return (
+        <div>
+            <div className="card w-80 bg-base-100 shadow-xl">
+                <figure className="px-10 pt-10">
+                    <img src={picture} alt="photo" className="rounded-xl" />
+                </figure>
+                <div className="card-body items-center text-center">
+                    <h2 className="card-title">{className}</h2>
+                    <h1 className="bg-green-600 text-white p-2 rounded-xl">Instructor Name:{name}</h1>
+                    <p className="bg-orange-300 p-2 rounded-xl"> Available Seat:{seats}</p>
+                    <p className="bg-sky-400 p-2 rounded-xl">Price:${price}</p>
+
+                </div>
+            </div>
+
+        </div>
+    );
+};
+
+export default AllClasses;

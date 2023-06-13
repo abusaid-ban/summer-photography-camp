@@ -1,32 +1,56 @@
 [
-    {
-      "className": "Portrait Photography",
-      "picture": "portrait.jpg",
-      "students": 500
-    },
-    {
-      "className": "Landscape Photography",
-      "picture": "landscape.jpg",
-      "students": 450
-    },
-    {
-      "className": "Wildlife Photography",
-      "picture": "wildlife.jpg",
-      "students": 400
-    },
-    {
-      "className": "Street Photography",
-      "picture": "street.jpg",
-      "students": 350
-    },
-    {
-      "className": "Fashion Photography",
-      "picture": "fashion.jpg",
-      "students": 300
-    },
-    {
-      "className": "Macro Photography",
-      "picture": "macro.jpg",
-      "students": 250
-    }
-  ]
+  {
+    "id": 1,
+    "className": "Portrait Photography",
+    "picture": "https://i.ibb.co/K7XhgLJ/portrait-2.jpg",
+    "students": 500,
+    "name": "David Brown",
+    "price":3000,
+    "seats": 200
+  },
+  {
+    "id": 2,
+    "className": "Landscape Photography",
+    "picture": "https://i.ibb.co/1f9RCDt/maxresdefault.jpg",
+    "students": 450,
+    "name": "Sarah Davis",
+    "price":2500,
+    "seats": 100
+  },
+  {
+    "id": 3,
+    "className": "Wildlife Photography",
+    "picture": "https://i.ibb.co/CVX0Dvc/ultimate-WP-2292-2-layered-1-heavy-weight.jpg",
+    "students": 400,
+    "name": "Emily Wilson",
+    "price":3500,
+    "seats": 130
+  },
+  {
+    "id": 4,
+    "className": "Street Photography",
+    "picture": "https://i.ibb.co/JKSgLyg/448-252.webp",
+    "students": 350,
+    "name": "Michael Johnson",
+    "price":2000,
+    "seats": 220
+  },
+  {
+    "id": 5,
+    "className": "Fashion Photography",
+    "picture": "https://i.ibb.co/0tZdBzn/editorial-photography-class-1024x683.jpg",
+    "students": 300,
+    "name": "Jane Smith",
+    "price": 2600,
+    "seats": 150
+  },
+  {
+    "id": 6,
+    "className": "Macro Photography",
+    "picture": "https://i.ibb.co/84jPtmH/del-macro2022.jpg",
+    "students": 250,
+    "name": "John Doe",
+    "price": 3200,
+    "seats": 60
+  }
+]
