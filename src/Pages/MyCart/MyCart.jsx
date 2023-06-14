@@ -1,9 +1,39 @@
 import { Helmet } from "react-helmet-async";
 import useCart from "../../Hooks/useCart";
+import { FaTrashAlt } from 'react-icons/fa';
+import Swal from "sweetalert2";
 
 const MyCart = () => {
-    const [cart] = useCart();
-    const total = cart.reduce((sum, item) => item.price + sum, 0)
+    const [cart,refetch] = useCart();
+    const total = cart.reduce((sum, item) => item.price + sum, 0);
+    const handleDelete = row =>{
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+             fetch(`http://localhost:5000/carts/${row._id}`,{
+                method:'DELETE'
+             })
+             .then(res=> res.json())
+             .then(data =>{
+                if(data.deletedCount > 0){
+                    refetch();
+                    Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                      )
+                }
+             })
+            }
+          })
+    }
     return (
         <div>
             <Helmet>
@@ -22,41 +52,39 @@ const MyCart = () => {
                             <th>
                                 #
                             </th>
-                            <th>ClassName</th>
-                            <th>Name</th>
+                            <th>Image</th>
+                            <th>Class Name</th>
                             <th>Price</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {/* row 1 */}
-                        <tr>
-                            <td>
-                               
-                            </td>
-                            <td>
-                                <div className="flex items-center space-x-3">
+                        {
+                            cart.map((row, index) => <tr key={row._id}>
+                                <td>
+                                    {index + 1}
+
+                                </td>
+                                <td>
+
                                     <div className="avatar">
                                         <div className="mask mask-squircle w-12 h-12">
-                                            <img src="/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                                            <img src={row.picture} />
                                         </div>
                                     </div>
-                                    <div>
-                                        <div className="font-bold">Hart Hagerty</div>
-                                        <div className="text-sm opacity-50">United States</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                Zemlak, Daniel and Leannon
-                                <br />
-                                <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
-                            </td>
-                            <td>Purple</td>
-                            <td>
-                                <button className="btn btn-ghost btn-xs">details</button>
-                            </td>
-                        </tr>
+                                </td>
+                                <td>
+                                  {row.className}
+                                   
+                                    
+                                </td>
+                                <td className="text-end">${row.price}</td>
+                                <td>
+                                    <button onClick={()=> handleDelete(row)} className="btn btn-ghost btn-xs bg-red-600 text-white"><FaTrashAlt></FaTrashAlt></button>
+                                </td>
+                            </tr>)
+                        }
+
                     </tbody>
                 </table>
             </div>
