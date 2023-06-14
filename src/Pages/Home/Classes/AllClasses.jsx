@@ -14,7 +14,7 @@ const AllClasses = ({allClass}) => {
         console.log(allClass);
         if(user && user.email){
             const classes = {classId: _id,name,picture,seats,price,className,email: user.email}
-            fetch('http://localhost:5000/carts',{
+            fetch('https://summer-photography-camp-server-eight.vercel.app/carts',{
                 method:'POST',
                 headers:{
                     'content-type':'application/json'
