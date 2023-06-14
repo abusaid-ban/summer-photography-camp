@@ -4,7 +4,10 @@ import PopularClass from "../PopularClass/PopularClass";
 import PopularInstructor from "../PopularInstructor/PopularInstructor";
 import ExtraSection from "../ExtraSection/ExtraSection";
 
+
 const Home = () => {
+   
+  
     return (
         <div>
             <Helmet>
