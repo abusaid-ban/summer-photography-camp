@@ -11,6 +11,7 @@ import ErrorPage from "../ErrorPage";
 
 import DashBoard from "../Layout/DashBoard/DashBoard";
 import MyCart from "../Pages/MyCart/MyCart";
+import PrivateRoute from './PrivateRoute';
 
 
 
@@ -45,7 +46,7 @@ import MyCart from "../Pages/MyCart/MyCart";
     },
     {
         path:"dashboard",
-        element:<DashBoard></DashBoard>,
+        element:<PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
         children:[
             {
                 path:'mycart',

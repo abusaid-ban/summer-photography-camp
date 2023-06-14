@@ -4,23 +4,32 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import SocialLogin from "../../Shared/SoicalLogin/SocialLogin";
 
 const Register = () => {
     const { register,reset, handleSubmit, formState: { errors } } = useForm();
     const { createUser,updateUserProfile} = useContext(AuthContext);
     const navigate = useNavigate();
     const onSubmit = data => {
-        console.log(data)
+     
         createUser(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 updateUserProfile(data.name,data.photoURL)
                 .then(()=>{
-                   console.log('User profile updated')
-                })
-                .then(error=>console.log(error))
-                reset();
+                    const saveUser = {name : data.name , email: data.email}
+                  fetch('http://localhost:5000/users',{
+                    method:'POST',
+                    headers:{
+                        'content-type':'application/json'
+                    },
+                    body:JSON.stringify(saveUser)
+                  })
+                  .then(res => res.json())
+                  .then(data=>{
+                    if(data.insertedId){
+                        reset();
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
@@ -29,6 +38,12 @@ const Register = () => {
                     timer: 1500
                   })
                   navigate('/');
+                        
+                    }
+                  });
+                })
+                .then(error=>console.log(error))
+                
             })
     };
 
@@ -99,6 +114,7 @@ const Register = () => {
                             <p className='text-center font bold my-4'>Already Have an Account? <span  >
                                 <Link className="text-orange-500" to='/login'>Login </Link> Here</span></p>
                         </div>
+                        <SocialLogin></SocialLogin>
                     </div>
                 </div>
             </div>

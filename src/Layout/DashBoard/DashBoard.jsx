@@ -1,7 +1,10 @@
 import { Helmet } from "react-helmet-async";
 import { Link, Outlet } from "react-router-dom";
+import useCart from "../../Hooks/useCart";
+import { FaShoppingCart} from 'react-icons/fa';
 
 const DashBoard = () => {
+    const [cart] = useCart();
     return (
         <div>
             <Helmet>
@@ -20,8 +23,8 @@ const DashBoard = () => {
                     <ul className="menu p-4 w-80 h-full bg-gray-500  text-white">
                        
                         <li><Link to="/"  className="bg-sky-500 mb-2">User Home</Link></li>
-                        <li><Link to="/dashboard/history"  className="bg-sky-500 mb-2">Payment History</Link></li>
-                        <li><Link to="/dashboard/mycart" className="bg-sky-500 ">My Cart</Link></li>
+                        <li><Link to="/dashboard/history"  className="bg-sky-500 mb-2">My Enroll Class</Link></li>
+                        <li><Link to="/dashboard/mycart" className="bg-sky-500 "> <FaShoppingCart></FaShoppingCart>My Selected Class  <div className="badge badge-secondary">+{cart?.length || 0}</div></Link></li>
                     </ul>
 
                 </div>

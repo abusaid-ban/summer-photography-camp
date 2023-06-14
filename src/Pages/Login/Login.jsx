@@ -4,6 +4,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from 'sweetalert2'
+import SocialLogin from "../Shared/SoicalLogin/SocialLogin";
 
 
 const Login = () => {
@@ -68,6 +69,7 @@ const Login = () => {
                         </div>
                     </form>
                     <p className="text-center pb-10"><small>New To Imagine Studio?<Link className="text-orange-400" to="/register"> Register</Link> Here</small></p>
+            <SocialLogin></SocialLogin>
                 </div>
             </div>
         </div>
